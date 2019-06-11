@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>按钮配置</title>
+    <link rel="stylesheet" type="text/css" href="/static/js/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/static/js/themes/icon.css">
+
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.easyui.min.js"></script>
+    <script src="/static/js/script/configShellButton.js"></script>
+
+</head>
+<body>
+
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="height:510px">
+        <table class="easyui-datagrid" id="tab" ></table>
+    </div>
+    <div data-options="region:'center'" id = "scrol">
+        <code id="code" style="height: 600px;width: 1000px"></code>
+    </div>
+</div>
+<div id="addDialog" class="easyui-dialog" title="添加" style="width:400px;height:200px;"  data-options="closed:true,iconCls:'icon-add',resizable:true,modal:true">
+    <form id="addForm" method="post">
+        <div>
+            <label for="buttonName">按钮名字:</label>
+            <input class="easyui-validatebox" type="text" name="buttonName" data-options="required:true" />
+        </div>
+        <div>
+            <label for="shell">shell指令(多个指令通过 ;隔开):</label>
+            <input class="easyui-validatebox" type="text" name="shell" data-options="required:true" />
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
