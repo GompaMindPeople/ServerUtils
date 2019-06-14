@@ -12,22 +12,25 @@
 <body>
 <div class="easyui-layout" data-options="fit:true">
     <div data-options="region:'north'" style="height:510px">
+        <select id="combobox_hostName" class="easyui-combobox"  style="width:200px;">
+        </select>
         <form id="saveForm" method="post">
+            <input id="SSHId" class="easyui-validatebox" type="text" name="SSHId" hidden="hidden" />
             <div>
                 <label for="userName">用户名:</label>
-                <input id="userName" class="easyui-validatebox" type="text" name="userName" data-options="required:true" />
+                <input id="userName" class="easyui-validatebox" type="text" name="UserName" data-options="required:true" />
             </div>
             <div>
                 <label for="password">密码:</label>
-                <input id="password" class="easyui-validatebox" type="password" name="password" data-options="required:true" />
+                <input id="password" class="easyui-validatebox" type="password" name="Password" data-options="required:true" />
             </div>
             <div>
                 <label for="hostName">主机Ip:</label>
-                <input id="hostName" class="easyui-validatebox" type="text" name="hostName" data-options="required:true" />
+                <input id="hostName" class="easyui-validatebox" type="text" name="HostName" data-options="required:true" />
             </div>
             <div>
                 <label for="port">端口:</label>
-                <input id="port" class="easyui-validatebox" type="text" name="port" data-options="required:true" />
+                <input id="port" class="easyui-validatebox" type="text" name="Port" data-options="required:true" />
             </div>
             <div>
                 <a id="submitBtn" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="javascript:saveConfig()">保存</a>

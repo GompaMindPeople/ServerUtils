@@ -1,50 +1,50 @@
 //本服配置
 let server = {
-    id: "#serverId#",
-    httpPort: "#serverHttpPort#",
-    ip: "#serverIp#",
-    name: "#serverName#",
-    openDate: "#serverOpenDate#",
-    version: "#serverVersion#",
-    platform: "#serverPlatform#",
-    partner: "#serverPartner#",
+    id: "#ServerId#",
+    httpPort: "#ServerHttpPort#",
+    ip: "#ServerIp#",
+    name: "#ServerName#",
+    openDate: "#ServerOpenDate#",
+    version: "#ServerVersion#",
+    platform: "#ServerPlatform#",
+    partner: "#ServerPartner#",
 };
 
 //充值服配置
 let rechargeServer = {
-    port: "#rechargeServerPort#",
-    ip: "#rechargeServerIp#",
+    port: "#RechargeServerPort#",
+    ip: "#RechargeServerIp#",
 };
 
 //账号服配置
 let acctServer = {
-    port: "#acctServerPort#",
-    ip: "#acctServerIp#",
+    port: "#AcctServerPort#",
+    ip: "#AcctServerIp#",
 };
 
 
 let mongo = {
     db: {
-        usr: "#mongoUser#",
-        pwd: "#mongoPwd#",
-        host: "#mongoHost#",
+        usr: "#MongoUser#",
+        pwd: "#MongoPwd#",
+        host: "#MongoHost#",
         name: "SQZZ_" + server.id
     },
     chatDB: {
-        usr: "#chatDBUser#",
-        pwd: "#chatDBPwd#",
-        host: "#chatDBHost#",
+        usr: "#ChatDBUser#",
+        pwd: "#ChatDBPwd#",
+        host: "#ChatDBHost#",
         name: "SQZZ_CHAT_" + server.id
     }
 };
 
 let mysql = {
     GameLog: {
-        host: "#mysqlHost#",
-        port: "#mysqlPort#",
-        database: "#mysqlDataBase#",
-        user: "#mysqlUser#",
-        password: "#mysqlPassword#"
+        host: "#MysqlHost#",
+        port: "#MysqlPort#",
+        database: "#MysqlDataBase#",
+        user: "#MysqlUser#",
+        password: "#MysqlPassword#"
     }
 };
 let redis = {};

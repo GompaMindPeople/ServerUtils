@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/js/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/static/js/themes/icon.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.easyui.min.js"></script>
+    <script src="/static/js/script/ConfigAllTemplate.js"></script>
+</head>
+<body>
+<div data-options="region:'north'" style="height:510px">
+
+    <form id="saveForm" method="post">
+        <select id="combobox_serverName" class="easyui-combobox"  style="width:200px;">
+        </select>
+        <br/>
+        --------------------------------------------主服务器配置--------------------------------------------------------------
+        <input id="TemplateId" class="easyui-validatebox" type="text" name="TemplateId"   hidden="hidden"/>
+        <div>
+            <label for="serverId">服务器Id:</label>
+            <input id="serverId" class="easyui-validatebox" type="text" name="ServerId"  />
+
+            <label for="serverHttpPort">服务器Http端口:</label>
+            <input id="serverHttpPort" class="easyui-validatebox" type="text" name="ServerHttpPort"  />
+
+            <label for="serverIp">服务器IP:</label>
+            <input id="serverIp" class="easyui-validatebox" type="text" name="ServerIp"  />
+
+            <label for="serverName">服务器名字:</label>
+            <input id="serverName" class="easyui-validatebox" type="text" name="ServerName"  />
+
+            <label for="serverOpenDate">服务器开启时间:</label>
+            <input id="serverOpenDate" class="easyui-validatebox" type="text" name="ServerOpenDate"  />
+        </div>
+        <div>
+            <label for="serverVersion">服务器版本:</label>
+            <input id="serverVersion" class="easyui-validatebox" type="text" name="ServerVersion"  />
+            <label for="serverPlatform">服务器Platform:</label>
+            <input id="serverPlatform" class="easyui-validatebox" type="text" name="ServerPlatform"  />
+
+            <label for="serverPartner">服务器partner:</label>
+            <input id="serverPartner" class="easyui-validatebox" type="text" name="ServerPartner"  />
+        </div>
+        <br>
+        <br>
+        <br>
+        --------------------------------------------------充值服务器配置-----------------------------------------------------------------------------
+        <div>
+            <label for="rechargeServerIp">充值服务IP:</label>
+            <input id="rechargeServerIp" class="easyui-validatebox" type="text" name="RechargeServerIp" />
+            <label for="rechargeServerPort">充值服务端口:</label>
+            <input id="rechargeServerPort" class="easyui-validatebox" type="text" name="RechargeServerPort"  />
+
+        </div>
+        <br>
+        <br>
+        <br>
+        -------------------------------------------------帐号服务器配置------------------------------------------------------------------------------
+        <div>
+            <label for="acctServerIp">帐号服务器ip:</label>
+            <input id="acctServerIp" class="easyui-validatebox" type="text" name="AcctServerIp"  />
+            <label for="acctServerPort">帐号服务器端口:</label>
+            <input id="acctServerPort" class="easyui-validatebox" type="text" name="AcctServerPort"  />
+        </div>
+        <br>
+        <br>
+        <br>
+        ----------------------------------------------------游戏mongo数据库配置---------------------------------------------------------------------------
+        <div>
+            <label for="mongoUser">mongo帐号:</label>
+            <input id="mongoUser" class="easyui-validatebox" type="text" name="MongoUser"  />
+        </div>
+        <div>
+            <label for="mongoPwd">mongo密码:</label>
+            <input id="mongoPwd" class="easyui-validatebox" type="text" name="MongoPwd"  />
+        </div>
+        <div>
+            <label for="mongoHost">mongo主机IP:</label>
+            <input id="mongoHost" class="easyui-validatebox" type="text" name="MongoHost"  />
+        </div>
+        <br>
+        <br>
+        <br>
+        ----------------------------------------------------日志mysql数据库配置---------------------------------------------------------------------------
+        <div>
+            <label for="mysqlHost">mysql主机IP:</label>
+            <input id="mysqlHost" class="easyui-validatebox" type="text" name="MysqlHost"  />
+        </div>
+        <div>
+            <label for="mysqlPort">mysql端口:</label>
+            <input id="mysqlPort" class="easyui-validatebox" type="text" name="MysqlPort"  />
+        </div>
+        <div>
+            <label for="mysqlDataBase">mysql数据库名:</label>
+            <input id="mysqlDataBase" class="easyui-validatebox" type="text" name="MysqlDataBase"  />
+        </div>
+        <div>
+            <label for="mysqlUser">mysql帐号:</label>
+            <input id="mysqlUser" class="easyui-validatebox" type="text" name="MysqlUser"  />
+        </div>
+        <div>
+            <label for="mysqlPassword">mysql密码:</label>
+            <input id="mysqlPassword" class="easyui-validatebox" type="text" name="MysqlPassword"  />
+        </div>
+
+        <div>
+            <a id="submitBtn" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="saveConfigAllTemplate()">保存</a>
+            <a id="submitBtn" class="easyui-linkbutton" data-options="iconCls:'icon-download'" onclick="downloadConfigAllTemplate()">下载模板</a>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

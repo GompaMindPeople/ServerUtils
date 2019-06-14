@@ -8,4 +8,5 @@ import (
 func init() {
 	beego.Include(&controllers.MainUtilController{})
 	beego.Include(&controllers.SSHController{})
+	beego.Include(&controllers.TemplateController{})
 }

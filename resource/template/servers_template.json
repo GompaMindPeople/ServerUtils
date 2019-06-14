@@ -1,20 +1,18 @@
 {
   "gate": [
-    {"order": 1, "id": "gate", "host": "192.168.5.187", "clientPort": 3010, "port": "4750", "frontend": true,"db": "logDB","args":"--debug=32313"}
+    {"order": 1, "id": "gate", "host": "127.0.0.1", "clientPort": "#GateClientPort#", "port":  "#GatePort#", "frontend": true,"db": "logDB"}
   ],
   "connector": [
-
-    {"order": 1, "id": "connector-s1",   "host": "192.168.5.187", "port": 4150, "clientHost": "192.168.5.187", "clientPort": 3020, "frontend": true, "max-connections": 5000, "db": "db"}
-
+    {"order": 1, "id": "connector-s1",   "host": "127.0.0.1", "port": "#ConnectorPort#", "clientHost": "#ConnectorClientHost#", "clientPort": "#ConnectorClientPort#", "frontend": true, "max-connections": 5000, "db": "db"}
   ],
   "world": [
-    {"order": 1, "id": "world",   "host": "192.168.5.187", "port": "4350", "db": "db","args":"--debug=32318"}
+    {"order": 1, "id": "world",   "host": "127.0.0.1", "port": "#WorldPort#", "db": "db"}
   ],
   "area": [
-    {"order": 1, "id": "area-s1",   "host": "192.168.5.187", "port": 4250, "db": "db","allOrder":"[1]","args":"--debug=32315"}
+    {"order": 1, "id": "area-s1",   "host": "127.0.0.1", "port": "#AreaPort#", "db": "db","allOrder":"[1]"}
   ],
   "war": [
-    {"order": 1, "id": "war-s1",   "host": "192.168.5.187", "port": 4851, "clientHost": "192.168.5.187", "clientPort": 3025, "frontend": true, "max-connections": 5000, "db": "db"}
+    {"order": 1, "id": "war-s1",   "host": "1270.0.0.1", "port": 4851, "clientHost": "#WarClientHost#", "clientPort": "#WarClientPort#", "frontend": true, "max-connections": 5000, "db": "db"}
   ]
 
 }

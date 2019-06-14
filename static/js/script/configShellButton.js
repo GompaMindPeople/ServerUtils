@@ -16,7 +16,7 @@ $(function () {
                 return data
             },
             columns:[[
-                {field:'id',title:'按钮Id',width:100,},
+                {field:'id',title:'按钮Id',width:100},
                 {field:'buttonName',title:'按钮名字',width:200},
                 {field:'shell',title:'执行的shell指令',width:500,align:'right'}
             ]],toolbar:[{
@@ -38,7 +38,15 @@ $(function () {
                 ]
         });
     }
-
+    $("#combobox_ConfigButton").combobox({
+        url:'/listSSHCombobox',
+        valueField:'SSHId',
+        method:"get",
+        textField:'HostName',
+        onSelect:function(record){
+            $("#SSHId").val(record.SSHId)
+        }
+    })
 // ,{
 //         text:'执行',
 //             iconCls:'icon-search',
@@ -87,10 +95,15 @@ $(function () {
         if (!datagrid){
             return
         }
+        let SSHId = $("#SSHId").val();
+        if (!SSHId) {
+            alert('请选择一个SSH配置')
+            return
+        }
         $.ajax({
             url:"/executeShell",
             type:"get",
-            data: {shell:datagrid.shell},
+            data: {shell:datagrid.shell,SSHId:SSHId},
             success:function(data){
                 // $("#tb").textbox("setValue",formatLog(data.Data.data))
                 $("#code").append(formatLog(data.Data.data))

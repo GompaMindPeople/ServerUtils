@@ -3,22 +3,28 @@ init()
 function init() {
     console.log("init")
     $.ajax({
-        url:"/getSshConfig",
+        url:"/listSSHCombobox",
         type:"get",
         success:function(data){
-            console.log(data)
-            if (data) {
-                $("#userName").val(data.UserName)
-                $("#password").val(data.Password)
-                $("#hostName").val(data.HostName)
-                $("#port").val(data.Port)
-            }
+            $('#combobox_hostName').combobox({
+                valueField:'SSHId',
+                textField:'HostName',
+                onSelect:function(record){
+                    $("#SSHId").val(record.SSHId)
+                    $.ajax({
+                        url:"/getSshConfigById",
+                        type:"get",
+                        data:{SSHId:record.SSHId},
+                        success:function(result){
+                            $('#saveForm').form("load",result)
+                        }
+                    })
+                }
+            });
+            $('#combobox_hostName').combobox("loadData",data)
         }
     })
 
-    $('#submitBtn').bind('click', function(){
-        saveConfig()
-    });
     $('#btn').linkbutton({
         iconCls: 'icon-search'
     });
