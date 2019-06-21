@@ -22,8 +22,13 @@ func MysqlInit() orm.Ormer {
 		panic(err)
 		return nil
 	}
+	root := beego.AppConfig.String("mysql_user")
+	password := beego.AppConfig.String("mysql_password")
+	host := beego.AppConfig.String("mysql_host")
+	port := beego.AppConfig.String("mysql_port")
+	database := beego.AppConfig.String("mysql_database")
 	//注册默认数据库
-	err = orm.RegisterDataBase("default", "mysql", "root:123456@tcp(127.0.0.1:3306)/tool?charset=utf8")
+	err = orm.RegisterDataBase("default", "mysql", root+":"+password+"@tcp("+host+":"+port+")/"+database+"?charset=utf8")
 	if err != nil {
 		panic(err)
 		return nil

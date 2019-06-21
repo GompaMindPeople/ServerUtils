@@ -1,0 +1,1 @@
+CREATE DATABASE `tool` CHARACTER SET 'utf8';

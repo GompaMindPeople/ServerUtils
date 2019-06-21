@@ -100,6 +100,11 @@ $(function () {
             alert('请选择一个SSH配置')
             return
         }
+        $.messager.progress({
+            title: '请稍等',
+            msg: '执行中...',
+        });
+
         $.ajax({
             url:"/executeShell",
             type:"get",
@@ -108,6 +113,8 @@ $(function () {
                 // $("#tb").textbox("setValue",formatLog(data.Data.data))
                 $("#code").append(formatLog(data.Data.data))
                 ScollPostionBase()
+                //关闭遮罩
+                $.messager.progress('close');
             }
 
         })

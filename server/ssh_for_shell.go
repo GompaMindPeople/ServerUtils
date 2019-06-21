@@ -18,6 +18,7 @@ import (
 	"net"
 	"strings"
 	"sync"
+	"time"
 )
 
 type SSHModel struct {
@@ -95,18 +96,37 @@ func (s *SshBean) RunSsh(cmd string, id int, stdout *bytes.Buffer, stderr *bytes
 	defer session.Close()
 	session.Stdout = stdout
 	session.Stderr = stderr
-	//err = session.Run(cmd)
+	timeout := make(chan bool, 1)
+	go func() {
+		time.Sleep(3 * time.Second) // sleep 3 second
+		timeout <- true
+	}()
+
+	ch := make(chan error, 1)
+	go func() {
+		ch <- session.Run(cmd)
+	}()
+	select {
+	case <-timeout:
+		fmt.Println("执行超时,强制返回!")
+	case <-ch:
+		fmt.Println("执行返回")
+	}
+
+	//session.Shell()
+	//f, err := session.CombinedOutput(cmd)
 	//err = session.Shell()
-	err = session.Start(cmd)
+	//err = session.Start(cmd)
 	if err != nil {
 		logs.Error(err)
 		return err
 	}
+	//fmt.Print(string(f))
 	//for _, c := range cmdlist {
 	//   c = c + "\n"
 	//   stdinBuf.Write([]byte(c))
 	//}
-	err = session.Wait()
+	//err = session.Wait()
 	//logs.Error(stdout.String() + stderr.String())
 	//err = session.Run("echo 123456")
 	//ret, err := strconv.Atoi( str.Replace( stdOut.String(), "\n", "", -1 )  )
