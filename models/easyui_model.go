@@ -6,7 +6,7 @@
 */
 package models
 
-type ButtonConf struct {
+type EasyUIModel struct {
 	Total int64
 	Rows []map[string]interface{}
 }
