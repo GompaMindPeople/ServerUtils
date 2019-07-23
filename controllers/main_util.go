@@ -22,7 +22,6 @@ type MainUtilController struct {
 func (c *MainUtilController) URLMapping() {
 	c.Mapping("getGameServerConfigForJson", c.GetGameServerConfigForJson)
 	c.Mapping("listForButtonConf", c.ListForButtonConf)
-	c.Mapping("saveAddDialog", c.SaveForButtonConf)
 	c.Mapping("executeShell", c.ExecuteShell)
 }
 
@@ -41,26 +40,8 @@ func (c *MainUtilController) Index() {
 
 //@router /listForButtonConf [get]
 func (c *MainUtilController) ListForButtonConf() {
-	c.Data["json"] = service.ListForButtonConf()
-	c.ServeJSON()
-}
-
-//@router /saveAddDialog [post]
-func (c *MainUtilController) SaveForButtonConf() {
-	buttonName := c.GetString("buttonName")
-	shell := c.GetString("shell")
-	conf := models.ButtonConf{}
-	//buttonName shell
-	conf.Rows = make([]map[string]interface{}, 1)
-	conf.Total = 1
-	conf.Rows[0] = map[string]interface{}{}
-	conf.Rows[0]["id"] = 1
-	conf.Rows[0]["shell"] = shell
-	conf.Rows[0]["buttonName"] = buttonName
-	err := service.SaveForButtonConf(conf)
-	if err != nil {
-		c.Data["json"] = "发生错误"
-	}
+	service.ListForButtonConf()
+	//c.Data["json"] =
 	c.ServeJSON()
 }
 
@@ -87,5 +68,33 @@ func (c *MainUtilController) ExecuteShell() {
 		return
 	}
 	c.Data["json"] = models.JsonMessage{Code: 200, Data: map[string]interface{}{"data": buffer.String()}}
+	c.ServeJSON()
+}
+
+//@router /listGroupALL [get]
+func (c *MainUtilController) ListGroupALL() {
+	serviceImpl := service.ButtonGroupServiceImpl{}
+	json := serviceImpl.ListAll()
+	c.Data["json"] = json
+	c.ServeJSON()
+}
+
+//@router /deleteGroupById [get]
+func (c *MainUtilController) DeleteGroupById() {
+	groupId := c.GetString("groupId")
+	if groupId == "" {
+		c.Data["json"] = "error"
+		c.ServeJSON()
+		return
+	}
+	i, e := strconv.Atoi(groupId)
+	if e != nil {
+		logs.Error(e)
+		c.Data["json"] = "error"
+		c.ServeJSON()
+		return
+	}
+	serviceImpl := service.ButtonGroupServiceImpl{}
+	serviceImpl.DeleteById(int64(i))
 	c.ServeJSON()
 }

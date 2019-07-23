@@ -36,6 +36,15 @@ func init() {
 
 	beego.GlobalControllerRouter["ServerUtils/controllers:MainUtilController"] = append(beego.GlobalControllerRouter["ServerUtils/controllers:MainUtilController"],
 		beego.ControllerComments{
+			Method:           "DeleteGroupById",
+			Router:           `/deleteGroupById`,
+			AllowHTTPMethods: []string{"get"},
+			MethodParams:     param.Make(),
+			Filters:          nil,
+			Params:           nil})
+
+	beego.GlobalControllerRouter["ServerUtils/controllers:MainUtilController"] = append(beego.GlobalControllerRouter["ServerUtils/controllers:MainUtilController"],
+		beego.ControllerComments{
 			Method:           "ExecuteShell",
 			Router:           `/executeShell`,
 			AllowHTTPMethods: []string{"get"},
@@ -54,9 +63,9 @@ func init() {
 
 	beego.GlobalControllerRouter["ServerUtils/controllers:MainUtilController"] = append(beego.GlobalControllerRouter["ServerUtils/controllers:MainUtilController"],
 		beego.ControllerComments{
-			Method:           "SaveForButtonConf",
-			Router:           `/saveAddDialog`,
-			AllowHTTPMethods: []string{"post"},
+			Method:           "ListGroupALL",
+			Router:           `/listGroupALL`,
+			AllowHTTPMethods: []string{"get"},
 			MethodParams:     param.Make(),
 			Filters:          nil,
 			Params:           nil})

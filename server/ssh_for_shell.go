@@ -45,6 +45,7 @@ func (s *SshBean) GetClient(user, password, host string, port int16) (*ssh.Clien
 		client       *ssh.Client
 		err          error
 	)
+
 	// get auth method
 	auth = make([]ssh.AuthMethod, 0)
 	auth = append(auth, ssh.Password(password))

@@ -34,7 +34,8 @@ func MysqlInit() orm.Ormer {
 		return nil
 	}
 	//注册model
-	orm.RegisterModel(new(models.SshConfig), new(models.Servers), new(models.ConfigAllTemplate), new(models.ServersTemplate))
+	orm.RegisterModel(new(models.SshConfig), new(models.Servers), new(models.ConfigAllTemplate), new(models.ServersTemplate), new(models.ButtonGroup),
+		new(models.ButtonShell), new(models.TypeTable), new(models.ConfigTable))
 	//自动建表
 	err = orm.RunSyncdb("default", false, true)
 	if err != nil {
