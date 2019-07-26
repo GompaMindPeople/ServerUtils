@@ -15,7 +15,10 @@ replace (
 require (
 	github.com/astaxie/beego v1.11.1
 	github.com/go-sql-driver/mysql v1.4.1
+	github.com/kr/fs v0.1.0 // indirect
+	github.com/pkg/sftp v1.10.0
 	github.com/smartystreets/goconvey v0.0.0-20190330032615-68dc04aab96a
+	github.com/stretchr/testify v1.3.0 // indirect
 	golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2
 	gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
 )
